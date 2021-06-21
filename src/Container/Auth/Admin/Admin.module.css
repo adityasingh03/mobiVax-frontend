@@ -1,0 +1,85 @@
+.cont{
+    text-align: center;
+}
+
+.header{
+    width: 80%;
+    height: 100px;
+    background-color: #459DF1;
+    margin: auto;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* background-image: url('../../../images/orange.png'); */
+}
+
+.doc{
+    font-size: 70px;
+    color: white;
+}
+
+.text{
+    padding: 20px;
+    color: rgb(87, 87, 87);
+    font-weight: bold;
+}
+
+.input{
+    display: inline-block;
+    padding: 10px 6px;
+    background-color: rgba(223, 223, 223, 0.452);
+    border-radius: 100px;
+    margin: 10px 0px;
+
+}
+
+.icon{
+    background-color: white;
+    color: rgb(88, 88, 88);
+    display: inline;
+    padding: 5px 7px;
+    border-radius: 100px;
+}
+
+.txt{
+    color: rgb(88, 88, 88);
+    background-color: rgba(223, 223, 223, 0);
+    border: none;
+    margin: 0px 10px;
+    text-align: center;
+}
+
+txt:focus, input:focus{
+    outline: none;
+}
+
+.eye{
+    width: max-content;
+    margin: auto;
+    cursor: pointer;
+    color: rgb(119, 119, 119);
+}
+
+.button{
+    
+    background-color: #459DF1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50px;
+    width: 40%;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.button:hover{
+    background-color: #0084ff;
+    color: white;
+}
+
+
