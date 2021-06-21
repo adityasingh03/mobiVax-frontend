@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 // import {Redirect} from 'react-router-dom';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-import logo from '../../../images/logo.png';
 import styles from './Public.module.css'
+import logo from '../../../images/logo.png';
 import Admin from '../Admin/Admin'
-// import * as actions from '../../../store/actions/auth'
+import * as actions from '../../../Store/actions/auth'
 // import Login from "../Signin/Singnin"
 // import Spinner from "../../../UI/Spinner/Spinner"
 
@@ -24,10 +24,10 @@ class Public extends Component {
         this.setState({admin: !this.state.admin})
     }
 
-    onSwitchEyeHandler = () => {
-        this.setState({showpass: !this.state.showpass})
+    onSubmitHandler = () => {
+        this.props.onAuth(this.state.phone, true)
     }
-    
+
     render () {
 
         // const spinner = this.props.loading ? <Spinner/> : null
@@ -59,11 +59,6 @@ class Public extends Component {
                         {/* <input type={this.state.showpass ? "text" : "password"} className={`${styles.input} ${styles.pass}`} placeholder="Password" onChange={this.onPassChange}></input> */}
                         <br/>
                     </form>
-
-                    {/* {!this.state.showpass 
-                    ?  <div className={styles.eye} onClick={this.onSwitchEyeHandler} ><i className="fa fa-eye"></i></div>
-                    : <div className={styles.eye} onClick={this.onSwitchEyeHandler}><i className="fa fa-eye-slash"></i></div>} */}
-                   
                    
                     <button className={styles.button} onClick={this.onSubmitHandler}>Verify</button>
                    
@@ -99,19 +94,21 @@ class Public extends Component {
     }
 }
 
+
 // const mapStateToProps = state => {
 //     return{
-//         modal_show: state.auth.modal_show,
-//         isAuth: state.auth.auth,
-//         loading: state.auth.loading
+//         edit_modal: state.user.edit_modal,
+//         create_modal: state.user.create_modal,
+//         loading: state.auth.loading,
+//         isAuth: state.auth.auth
 //     }
 // }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onAuth: (name, email, pass, signup) => dispatch(actions.auth(name, email, pass, signup)),
-//         switch: () => dispatch(actions.switchSign())
-//     }
-// }
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (no, staff) => dispatch(actions.auth(no, staff)),
+       
+    }
+}
 
-export default Public;
+export default connect(null, mapDispatchToProps)(Public);

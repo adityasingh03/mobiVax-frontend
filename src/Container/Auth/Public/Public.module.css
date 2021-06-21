@@ -50,7 +50,7 @@
 }
 
 .admin:hover{
-    color: #459DF1;
+    text-decoration: underline;
 }
 
 .signup{
