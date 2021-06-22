@@ -46,6 +46,8 @@ class Public extends Component {
 
             <div className={styles.back}>
 
+                {this.props.error=="" ? null : <div className={styles.error}>{this.props.error}</div>}
+
                 {redirect}
 
                 <Admin show={this.state.admin} switch={this.onSwitchLoginHandler}/>
@@ -128,7 +130,8 @@ class Public extends Component {
 const mapStateToProps = state => {
     return{
         verify: state.verify ,
-        isAuth: state.auth
+        isAuth: state.auth,
+        error: state.error
     }
 }
 

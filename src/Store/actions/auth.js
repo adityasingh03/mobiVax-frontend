@@ -3,6 +3,7 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 export const authStart = () => {
+    console.log('start')
     return {
         type: actionTypes.AUTH_START
     };
@@ -17,6 +18,7 @@ export const authSuccess = (token, userId) => {
 };
 
 export const authFail = (error) => {
+    console.log("aaa")
     return {
         type: actionTypes.AUTH_FAIL,
         error: error
@@ -45,8 +47,8 @@ export const auth = (mobileNo, staff) => {
            localStorage.setItem('phone', mobileNo)
            dispatch(verifyStart());
         }).catch(e => {
+            dispatch(authFail(e.message));
             console.log(e);
-            dispatch(authFail());
         })
     };
 };
@@ -64,11 +66,12 @@ export const verify = (mobileNo, otp) => {
         axios.post(url, authData)
         .then( response => {
            console.log(response)
-           localStorage.setItem('phone', mobileNo)
+           localStorage.setItem('token', response.data.token)
+           localStorage.setItem('userId', response.data.userId)
            dispatch(authSuccess());
         }).catch(e => {
-            console.log(e)
-            dispatch(authFail());
+            dispatch(authFail(e));
+            console.log(e.message)
         })
     };
 };
