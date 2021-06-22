@@ -4,7 +4,8 @@ const initialState = {
     token: null,
     userId: null,
     loading: false,
-    auth: false
+    auth: false,
+    verify: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +31,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 auth: false,
                 loading: false
+            }
+
+        case actionTypes.VERIFY_START:
+            return{
+                ...state,
+                verify: true
             }
 
         default:

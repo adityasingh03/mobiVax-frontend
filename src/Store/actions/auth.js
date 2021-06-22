@@ -23,29 +23,52 @@ export const authFail = (error) => {
     };
 };
 
+export const verifyStart = () => {
+    return{
+        type: actionTypes.VERIFY_START
+    }
+}
+
 export const auth = (mobileNo, staff) => {
     return dispatch => {
         dispatch(authStart());
         const authData = {
             mobileNo: mobileNo,           
         };
-        let url = 'localhost:9000/user/login';
+        let url = 'http://localhost:9000/user/login';
         if (staff) {
-            url = 'localhost:9000/user/login';
+            url = 'http://localhost:9000/user/login';
         }
         axios.post(url, authData)
-            .then(response => {
-                // const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
-                // localStorage.setItem('token', response.data.idToken);
-                // localStorage.setItem('expirationDate', expirationDate);
-                // localStorage.setItem('userId', response.data.localId);
-                // dispatch(authSuccess(response.data.idToken, response.data.localId));
-                // dispatch(checkAuthTimeout(response.data.expiresIn));
+        .then( response => {
+           console.log(response)
+           localStorage.setItem('phone', mobileNo)
+           dispatch(verifyStart());
+        }).catch(e => {
+            console.log(e);
+            dispatch(authFail());
+        })
+    };
+};
 
-                console.log(response.data)
-            })
-            .catch(err => {
-                dispatch(authFail(err.response.data.error));
-            });
+
+export const verify = (mobileNo, otp) => {
+    return dispatch => {
+        dispatch(authStart());
+        const authData = {
+            mobileNo,
+            otp          
+        };
+        let url = 'http://localhost:9000/user/verify';
+
+        axios.post(url, authData)
+        .then( response => {
+           console.log(response)
+           localStorage.setItem('phone', mobileNo)
+           dispatch(authSuccess());
+        }).catch(e => {
+            console.log(e)
+            dispatch(authFail());
+        })
     };
 };

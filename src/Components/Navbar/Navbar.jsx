@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
-import {NavLink} from 'react-router-dom';
 import styles from './Navbar.module.css'
+import {NavLink} from 'react-router-dom';
+
+import Logo from '../../images/logo.png'
 
 class Navbar extends Component {
 
@@ -10,16 +12,28 @@ class Navbar extends Component {
         return (
             <div>
                <ul className={styles.main_nav}>
+
+                    <li >
+                      <NavLink className={styles.tag} exact to="/" activeClassName={styles.active}>
+                        <img src={Logo} className={styles.logo}></img>
+                        <div className={styles.name}>mobivax</div>
+                      </NavLink>
+                    </li>
+
                     <li className={styles.link}>
-                      <NavLink exact to="/" activeClassName={styles.active}>Home</NavLink>
+                      <NavLink className={styles.tag} exact to="/" activeClassName={styles.active}>Home</NavLink>
                     </li> 
 
                     <li className={styles.link}>
-                      <NavLink exact to="/support" activeClassName={styles.active}>Support</NavLink>
+                      <NavLink className={styles.tag} exact to="/support" activeClassName={styles.active}>Support</NavLink>
                     </li> 
 
                     <li className={styles.link}>
-                      <NavLink exact to="/auth" activeClassName={styles.active}>Chat</NavLink>
+                      <NavLink className={styles.tag} exact to="/auth" activeClassName={styles.active}>Chat</NavLink>
+                    </li> 
+
+                    <li className={`${styles.link} ${styles.push}`}>
+                      <NavLink className={styles.tag} exact to="/auth" activeClassName={styles.active}>Logout</NavLink>
                     </li> 
                </ul>
             </div>

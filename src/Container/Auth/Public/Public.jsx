@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
-// import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import styles from './Public.module.css'
 import logo from '../../../images/logo.png';
 import Admin from '../Admin/Admin'
+import Verify from '../../../UI/Modal/Modal'
 import * as actions from '../../../Store/actions/auth'
-// import Login from "../Signin/Singnin"
-// import Spinner from "../../../UI/Spinner/Spinner"
+
+
 
 class Public extends Component {
 
     state = {
         phone: null,
-        admin: false
+        admin: false,
+        otp: ""
     }
 
     onPhoneChange = (event) => {
@@ -28,15 +30,43 @@ class Public extends Component {
         this.props.onAuth(this.state.phone, true)
     }
 
+    otpChangeHandler = (event) => {
+        this.setState({otp: event.target.value})
+    }
+
+    onVerifyHandler = () => {
+        this.props.onVerify(localStorage.getItem('phone'), this.state.otp )
+    }
+
     render () {
 
-        // const spinner = this.props.loading ? <Spinner/> : null
+        const redirect = this.props.isAuth ? <Redirect to="/"/> : null;
 
         return(
 
             <div className={styles.back}>
 
+                {redirect}
+
                 <Admin show={this.state.admin} switch={this.onSwitchLoginHandler}/>
+
+                <Verify show={this.props.verify}>
+
+                    <div className={styles.verify}>
+                        <div className={styles.header}>
+                            <div className={styles.env}><i className="fa fa-envelope"></i></div>
+                        </div>
+
+                        <div className={styles.otp_head}>OTP verification</div>
+                        <div className={styles.sent}>An OTP has been sent to </div>
+                        <div className={styles.no}>{localStorage.getItem('phone')}</div>
+
+                        <input className={styles.otp_input} onChange={this.otpChangeHandler} type="text" placeholder="Enter OTP"></input>
+                        <div className={styles.verify_button} onClick={this.onVerifyHandler}>Verify</div>
+                    </div>
+
+                   
+                </Verify>
 
                 {/* {spinner} */}
 
@@ -60,7 +90,7 @@ class Public extends Component {
                         <br/>
                     </form>
                    
-                    <button className={styles.button} onClick={this.onSubmitHandler}>Verify</button>
+                    <button className={styles.button} onClick={this.onSubmitHandler}>Send OTP</button>
                    
                 </div >
 
@@ -95,20 +125,18 @@ class Public extends Component {
 }
 
 
-// const mapStateToProps = state => {
-//     return{
-//         edit_modal: state.user.edit_modal,
-//         create_modal: state.user.create_modal,
-//         loading: state.auth.loading,
-//         isAuth: state.auth.auth
-//     }
-// }
+const mapStateToProps = state => {
+    return{
+        verify: state.verify ,
+        isAuth: state.auth
+    }
+}
 
 const mapDispatchToProps = dispatch => {
     return {
         onAuth: (no, staff) => dispatch(actions.auth(no, staff)),
-       
+        onVerify: (no, otp) => dispatch(actions.verify(no, otp)),
     }
 }
 
-export default connect(null, mapDispatchToProps)(Public);
+export default connect(mapStateToProps, mapDispatchToProps)(Public);
