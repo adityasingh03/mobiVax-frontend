@@ -30,7 +30,6 @@ export const verifyStart = () => {
         type: actionTypes.VERIFY_START
     }
 }
-
 export const auth = (mobileNo, staff) => {
     return dispatch => {
         dispatch(authStart());
@@ -52,8 +51,6 @@ export const auth = (mobileNo, staff) => {
         })
     };
 };
-
-
 export const verify = (mobileNo, otp) => {
     return dispatch => {
         dispatch(authStart());
