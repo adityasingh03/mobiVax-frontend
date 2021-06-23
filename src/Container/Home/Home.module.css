@@ -1,9 +1,13 @@
+body{
+    background-color: rgb(238, 238, 238);
+}
+
 .parallax {
     /* The image used */
-    background-image: url('../../images/cover.jpg');
+    background-image: url('../../images/home_cover.jpg');
   
     /* Set a specific height */
-    min-height: 250px; 
+    min-height: 350px; 
   
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -17,4 +21,75 @@
       font-size: 40px;
       font-weight: bold;
       margin-left: 20px;
+  }
+
+  .home_cont{
+      background-color: white;
+      color: rgb(97, 97, 97);
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      width: 50%;
+      padding: 20px;
+      margin: 50px auto;
+      border: 1px solid rgb(160, 160, 160);
+      border-radius: 5px;
+  }
+
+  .members{
+      text-align: center;
+      margin: 20px 0px;
+      color: rgb(49, 49, 49);
+      font-size: 20px;
+  }
+
+  .add_button{
+      background-color: #459DF1;
+      width: max-content;
+      margin: auto;
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+
+  .add_button:hover {
+      background-color: #0084ff;
+  }
+
+  .info{
+      margin: 50px 0px;
+  }
+
+  /* modal */
+
+  .addMem{
+      text-align: center;
+  }
+
+  .inst{
+      background-color: #459DF1;
+      color: white;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+  }
+
+  .inputs{
+      padding-top: 40px;
+      text-align: left;
+  }
+
+  .input{
+      margin: 20px 10px;
+      border: none;
+      border-bottom: 2px solid #459DF1;
+  }
+
+  .submit{
+      background-color: #459DF1;
+      padding: 10px;
+      width: max-content;
+      margin-left: auto;
+      color: white;
   }
