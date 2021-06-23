@@ -21,15 +21,27 @@ class Navbar extends Component {
                     </li>
 
                     <li className={styles.link}>
-                      <NavLink className={styles.tag} exact to="/" activeClassName={styles.active}>Home</NavLink>
+                      {this.props.admin ? 
+                       <NavLink className={styles.tag} exact to="/admin" activeClassName={styles.active}>Patients</NavLink> :
+                       <NavLink className={styles.tag} exact to="/" activeClassName={styles.active}>Home</NavLink>
+                      }
+                     
                     </li> 
 
                     <li className={styles.link}>
-                      <NavLink className={styles.tag} exact to="/support" activeClassName={styles.active}>Support</NavLink>
+                    {this.props.admin ? 
+                        <NavLink className={styles.tag} exact to="/directions" activeClassName={styles.active}>Directions</NavLink> :
+                        <NavLink className={styles.tag} exact to="/support" activeClassName={styles.active}>Support</NavLink>
+                      }
+      
                     </li> 
 
                     <li className={styles.link}>
-                      <NavLink className={styles.tag} exact to="/auth" activeClassName={styles.active}>Chat</NavLink>
+                    {this.props.admin ? 
+                       <NavLink className={styles.tag} exact to="/chat" activeClassName={styles.active}>Chat</NavLink> :
+                       <NavLink className={styles.tag} exact to="/chat" activeClassName={styles.active}>Chat</NavLink>
+                      }
+                     
                     </li> 
 
                     <li className={`${styles.link} ${styles.push}`}>

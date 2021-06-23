@@ -39,14 +39,32 @@ export const auth = (mobileNo, staff) => {
             mobileNo: mobileNo,           
         };
         let url = 'http://localhost:9000/user/login';
-        if (staff) {
-            url = 'http://localhost:9000/user/login';
-        }
         axios.post(url, authData)
         .then( response => {
            console.log(response)
            localStorage.setItem('phone', mobileNo)
            dispatch(verifyStart());
+        }).catch(e => {
+            dispatch(authFail(e.message));
+            console.log(e);
+        })
+    };
+};
+
+
+export const authAdmin = (userName, password) => {
+    return dispatch => {
+        dispatch(authStart());
+        const authData = {
+            email: userName,
+            password: password           
+        };
+        let url = 'http://localhost:9000/staff/login';
+        
+        axios.post(url, authData)
+        .then( response => {
+           console.log(response)
+        //    localStorage.setItem('username', username)
         }).catch(e => {
             dispatch(authFail(e.message));
             console.log(e);

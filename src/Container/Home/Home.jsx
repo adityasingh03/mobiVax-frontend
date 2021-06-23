@@ -4,6 +4,7 @@ import styles from './Home.module.css'
 import AddMember from '../../UI/Modal/Modal'
 import Navbar from '../../Components/Navbar/Navbar'
 import Footer from '../../Components/Footer/Footer'
+import Member from '../../Container/Cards/User/User'
 
 class Home extends Component {
 
@@ -54,6 +55,15 @@ class Home extends Component {
                  <div className={styles.parallax}>
                      <div className={styles.tag}>Get your whole family vaccinated here</div>
                      <div className={styles.tag}>at home!</div>
+                 </div>
+
+                 <div className={styles.date}>12/12/12</div>
+
+                 <div>
+                     <Member/>
+                     <Member/>
+                     <Member/>
+                     <Member/>
                  </div>
                 
                 <div className={styles.home_cont}>
