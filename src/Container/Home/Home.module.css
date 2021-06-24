@@ -1,95 +1,95 @@
-body{
-    background-color: rgb(238, 238, 238);
+body {
+  background-color: rgb(238, 238, 238);
 }
 
 .parallax {
-    /* The image used */
-    background-image: url('../../images/home_cover.jpg');
-  
-    /* Set a specific height */
-    min-height: 350px; 
-  
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  /* The image used */
+  background-image: url("../../images/home_cover.jpg");
+  /*pussh*/
+  /* Set a specific height */
+  min-height: 350px;
 
-  .tag{
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      margin-left: 20px;
-  }
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  .home_cont{
-      background-color: white;
-      color: rgb(97, 97, 97);
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      width: 50%;
-      padding: 20px;
-      margin: 50px auto;
-      border: 1px solid rgb(160, 160, 160);
-      border-radius: 5px;
-  }
+.tag {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 20px;
+}
 
-  .members{
-      text-align: center;
-      margin: 20px 0px;
-      color: rgb(49, 49, 49);
-      font-size: 20px;
-  }
+.home_cont {
+  background-color: white;
+  color: rgb(97, 97, 97);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 50%;
+  padding: 20px;
+  margin: 50px auto;
+  border: 1px solid rgb(160, 160, 160);
+  border-radius: 5px;
+}
 
-  .add_button{
-      background-color: #459DF1;
-      width: max-content;
-      margin: auto;
-      padding: 10px;
-      color: white;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-  }
+.members {
+  text-align: center;
+  margin: 20px 0px;
+  color: rgb(49, 49, 49);
+  font-size: 20px;
+}
 
-  .add_button:hover {
-      background-color: #0084ff;
-  }
+.add_button {
+  background-color: #459df1;
+  width: max-content;
+  margin: auto;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .info{
-      margin: 50px 0px;
-  }
+.add_button:hover {
+  background-color: #0084ff;
+}
 
-  /* modal */
+.info {
+  margin: 50px 0px;
+}
 
-  .addMem{
-      text-align: center;
-  }
+/* modal */
 
-  .inst{
-      background-color: #459DF1;
-      color: white;
-      padding: 10px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 5px;
-  }
+.addMem {
+  text-align: center;
+}
 
-  .inputs{
-      padding-top: 40px;
-      text-align: left;
-  }
+.inst {
+  background-color: #459df1;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
 
-  .input{
-      margin: 20px 10px;
-      border: none;
-      border-bottom: 2px solid #459DF1;
-  }
+.inputs {
+  padding-top: 40px;
+  text-align: left;
+}
 
-  .submit{
-      background-color: #459DF1;
-      padding: 10px;
-      width: max-content;
-      margin-left: auto;
-      color: white;
-  }
+.input {
+  margin: 20px 10px;
+  border: none;
+  border-bottom: 2px solid #459df1;
+}
+
+.submit {
+  background-color: #459df1;
+  padding: 10px;
+  width: max-content;
+  margin-left: auto;
+  color: white;
+}

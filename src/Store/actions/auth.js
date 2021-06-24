@@ -31,28 +31,10 @@ export const verifyStart = () => {
   };
 };
 export const auth = (mobileNo, staff) => {
-<<<<<<< HEAD
   return (dispatch) => {
     dispatch(authStart());
     const authData = {
       mobileNo: mobileNo,
-=======
-    return dispatch => {
-        dispatch(authStart());
-        const authData = {
-            mobileNo: mobileNo,           
-        };
-        let url = 'http://localhost:9000/user/login';
-        axios.post(url, authData)
-        .then( response => {
-           console.log(response)
-           localStorage.setItem('phone', mobileNo)
-           dispatch(verifyStart());
-        }).catch(e => {
-            dispatch(authFail(e.message));
-            console.log(e);
-        })
->>>>>>> e476bb4a51a336673b10c13ee17ea75b7047dad5
     };
     let url = "http://localhost:9000/user/login";
     if (staff) {
@@ -71,32 +53,6 @@ export const auth = (mobileNo, staff) => {
       });
   };
 };
-<<<<<<< HEAD
-=======
-
-
-export const authAdmin = (userName, password) => {
-    return dispatch => {
-        dispatch(authStart());
-        const authData = {
-            email: userName,
-            password: password           
-        };
-        let url = 'http://localhost:9000/staff/login';
-        
-        axios.post(url, authData)
-        .then( response => {
-           console.log(response)
-        //    localStorage.setItem('username', username)
-        }).catch(e => {
-            dispatch(authFail(e.message));
-            console.log(e);
-        })
-    };
-};
-
-
->>>>>>> e476bb4a51a336673b10c13ee17ea75b7047dad5
 export const verify = (mobileNo, otp) => {
   return (dispatch) => {
     dispatch(authStart());
