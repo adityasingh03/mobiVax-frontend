@@ -1,21 +1,23 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux';
 // import { connect } from 'react-redux';
 
 import styles from './Admin.module.css'
 import Modal from '../../../UI/Modal/Modal'
+import * as actions from '../../../Store/actions/auth'
 // import * as actions from '../../../store/actions/auth'
 // import Spinner from "../../../UI/Spinner/Spinner"
 
 class Admin extends Component {
 
     state = {
-        email: null,
-        password: null,
+        user: "",
+        password: "",
         showpass: false
     }
 
-    onEmailChange = (event) => {
-        this.setState({email: event.target.value})
+    onUserChange = (event) => {
+        this.setState({user: event.target.value})
     }
 
     onPassChange = (event) => {
@@ -32,12 +34,8 @@ class Admin extends Component {
 
     render() {
 
-        // const spinner = this.props.loading ? <Spinner/> : null
-
          return(
              <div>
-
-                 {/* {spinner} */}
 
                  <Modal show={this.props.show} switch={this.props.switch}>
                      <div className={styles.cont} >
@@ -71,4 +69,19 @@ class Admin extends Component {
     }
 }
 
-export default Admin;
+// const mapStateToProps = state => {
+//     return{
+//         verify: state.verify ,
+//         isAuth: state.auth,
+//         error: state.error
+//     }
+// }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (no, staff) => dispatch(actions.auth(no, staff)),
+        onVerify: (no, otp) => dispatch(actions.verify(no, otp)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Admin);
