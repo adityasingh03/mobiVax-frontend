@@ -4,7 +4,7 @@
 }
 
 .back {
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   background: linear-gradient(
       to bottom,
@@ -15,7 +15,7 @@
   height: 100vh;
   /* Center and scale the image nicely */
   background-size: cover;
-  min-height: 680px;
+  min-height: 720px;
 }
 
 .error {
@@ -163,7 +163,7 @@ form {
 
 .button2 {
   letter-spacing: 1px;
-  background-color: rgba(116, 113, 113, 0.466);
+  background-color: rgb(14 14 14 / 80%);
   padding: 8px 20px;
   border: none;
   cursor: pointer;
@@ -179,7 +179,7 @@ form {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   display: none;
-  margin-bottom: -40px;
+  margin-bottom: 40px;
 }
 
 .button2:hover {
@@ -220,6 +220,19 @@ form {
   min-width: 220px;
 }
 
+.feature1:hover,
+.feature2:hover,
+.feature3:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.884);
+  font-weight: 500;
+}
+.feature1:hover .icon,
+.feature2:hover .icon,
+.feature3:hover .icon {
+  background-color: rgba(145, 145, 145, 0.568);
+  color: #000000;
+}
 .cont1,
 .cont2,
 .cont3 {
@@ -319,7 +332,9 @@ form {
   }
   .logo {
     flex: 50%;
-    max-width: 150px;
+    max-width: 200px;
+    min-width: 150px;
+    margin-left: 10vw;
   }
   .name {
     flex: 50%;
@@ -368,13 +383,14 @@ form {
     display: none;
   }
 }
-@media only screen and (min-width: 493px) {
+@media only screen and (min-width: 510px) {
   * {
     font-size: 16px;
   }
   .logo {
     flex: 33%;
-    width: auto;
+    max-width: 200px;
+    margin-left: 20px;
   }
   .name {
     flex: 33%;
